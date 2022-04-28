@@ -32,7 +32,7 @@ public class Contact {
     private String contactInfo;
 
     @ManyToOne
-    @JoinColumn(name="TEAM_ID")
+    @JoinColumn(name="AUTHOR_ID")
     private Author author;
 
     @Version

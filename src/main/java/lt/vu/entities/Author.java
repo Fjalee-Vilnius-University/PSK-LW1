@@ -28,8 +28,7 @@ public class Author {
     @JoinColumn(name="AUTHOR_ID")
     private List<Book> books;
 
-    @OneToMany
-    @JoinColumn(name="AUTHOR_ID")
+    @OneToMany(mappedBy = "contact")
     private List<Contact> contacts;
 
     @Version
