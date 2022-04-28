@@ -16,6 +16,9 @@ import java.util.Objects;
 @Table(name = "AUTHOR")
 @Getter @Setter
 public class Author {
+    public Author() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -25,18 +28,15 @@ public class Author {
     private String name;
 
     @ManyToMany
-    @JoinColumn(name="AUTHOR_ID")
+    @JoinColumn(name="BOOK_ID")
     private List<Book> books;
 
-    @OneToMany(mappedBy = "contact")
+    @OneToMany(mappedBy = "author")
     private List<Contact> contacts;
 
     @Version
     @Column(name = "OPT_LOCK_VERSION")
     private Integer version;
-
-    public Author() {
-    }
 
     @Override
     public boolean equals(Object o) {
