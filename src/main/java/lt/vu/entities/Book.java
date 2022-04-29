@@ -5,12 +5,17 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "BOOK")
-@Getter
+@Getter @Setter
 public class Book {
+    public Book() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -20,5 +25,27 @@ public class Book {
     private String name;
 
     @ManyToMany(mappedBy = "books")
-    List<Author> authors;
+    List<Author> authors = new ArrayList<>();
+
+    public void addAuthor(Author newAuthor){
+        authors.add(newAuthor);
+    }
+
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    private Integer version;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return Objects.equals(id, book.id) &&
+                Objects.equals(name, book.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
+    }
 }
