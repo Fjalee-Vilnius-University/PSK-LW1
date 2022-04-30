@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Book.findAll", query = "select a from Book as a")
+})
 @Table(name = "BOOK")
 @Getter @Setter
 public class Book {
@@ -25,11 +28,7 @@ public class Book {
     private String name;
 
     @ManyToMany(mappedBy = "books")
-    List<Author> authors = new ArrayList<>();
-
-    public void addAuthor(Author newAuthor){
-        authors.add(newAuthor);
-    }
+    private List<Author> authors = new ArrayList<>();
 
     @Version
     @Column(name = "OPT_LOCK_VERSION")

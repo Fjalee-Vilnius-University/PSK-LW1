@@ -45,8 +45,12 @@ public class BooksOfAuthor implements Serializable {
 
     @Transactional
     @LoggedInvocation
-    public void createBook() {
-        bookToCreate.addAuthor(this.author);
-        booksDAO.persist(bookToCreate);
+    public void createBook(String bookName) {
+        Book tempBook = booksDAO.findOneByName(bookToCreate.getName());
+        if (tempBook == null){
+            booksDAO.persist(bookToCreate);
+            tempBook = bookToCreate;
+        }
+        author.createBook(tempBook);
     }
 }
