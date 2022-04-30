@@ -6,6 +6,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -28,8 +29,12 @@ public class Author {
     private String name;
 
     @ManyToMany
-    @JoinColumn(name="BOOK_ID")
-    private List<Book> books;
+    @JoinTable(name="AUTHOR_BOOK")
+    private List<Book> books = new ArrayList<>();
+
+    public void createBook(Book book){
+        books.add(book);
+    }
 
     @OneToMany(mappedBy = "author")
     private List<Contact> contacts;

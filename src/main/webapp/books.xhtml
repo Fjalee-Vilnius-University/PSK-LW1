@@ -10,9 +10,9 @@
     <h2>Author #{booksOfAuthor.author.name} wrote:</h2>
     <ol>
         <ui:repeat value="#{booksOfAuthor.author.books}" var="book">
-            <li>
-                <h:link value="#{book.name}" outcome="bookDetails?bookId=#{book.id}" />
-            </li>
+            <div>#{book.name}</div>
+<!--                <h:link value=""/>-->
+<!--                <h:link value="#{book.name}" outcome="bookDetails?bookId=#{book.id}" />-->
         </ui:repeat>
     </ol>
     <h:form>
