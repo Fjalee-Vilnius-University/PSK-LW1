@@ -21,6 +21,11 @@
                 <f:param name="authorId" value="#{booksOfAuthor.author.id}" />
         </h:commandButton>
     </h:form>
-    <h:link outcome="index" value="Back to author page"/>
+    <div>
+        <h:link outcome="index" value="Back to author page"/>
+    </div>
+    <div>
+        <h:link outcome="contacts?authorId=#{booksOfAuthor.author.id}"  value="To author's contacts"/>
+    </div>
 </h:body>
 </html>
