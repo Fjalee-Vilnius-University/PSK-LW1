@@ -4,13 +4,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lt.vu.entities.Author;
 import lt.vu.entities.Book;
-import lt.vu.entities.Player;
-import lt.vu.entities.Team;
 import lt.vu.interceptors.LoggedInvocation;
 import lt.vu.persistence.AuthorDAO;
 import lt.vu.persistence.BooksDAO;
-import lt.vu.persistence.PlayersDAO;
-import lt.vu.persistence.TeamsDAO;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
