@@ -16,6 +16,14 @@
         <h:inputText value="#{authors.authorToCreate.name}" required="true" />
         <h:commandButton value="Add new author" actionListener="#{authors.createAuthor}" action="index?faces-redirect=true"/>
     </h:form>
+
+    <div>
+        <h:form>
+            <h:outputText value="#{asyncTask.getAsyncTaskStatus()}" />
+            <h:commandButton value="Do long task" disabled="#{asyncTask.isAsyncTaskRunning()}" action="#{asyncTask.longTask()}">
+            </h:commandButton>
+        </h:form>
+    </div>
 </h:body>
 </html>
 
