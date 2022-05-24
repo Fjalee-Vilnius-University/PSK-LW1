@@ -20,6 +20,11 @@ public class Author {
     public Author() {
     }
 
+    public Author (Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

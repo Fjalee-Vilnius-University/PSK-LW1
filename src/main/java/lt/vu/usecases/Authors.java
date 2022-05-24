@@ -5,6 +5,7 @@ import lombok.Setter;
 import lt.vu.entities.Author;
 import lt.vu.interceptors.MyInterceptor;
 import lt.vu.persistence.AuthorDAO;
+import lt.vu.persistence.AuthorDAOInterface;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -16,7 +17,7 @@ import java.util.List;
 public class Authors {
 
     @Inject
-    private AuthorDAO authorsDAO;
+    private AuthorDAOInterface authorsDAO;
 
     @Getter @Setter
     private Author authorToCreate = new Author();
