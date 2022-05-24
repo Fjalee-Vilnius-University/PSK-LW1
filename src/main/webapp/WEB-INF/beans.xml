@@ -7,9 +7,8 @@
         bean-discovery-mode="annotated">
 
     <alternatives>
-<!--        <class>lt.vu.persistence.MockAuthorDAO</class>-->
+        <class>lt.vu.persistence.MockAuthorDAO</class>
     </alternatives>
-
     <interceptors>
         <class>lt.vu.interceptors.MYInterceptorImplementation</class>
     </interceptors>
