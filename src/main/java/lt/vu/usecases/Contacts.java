@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lt.vu.entities.Author;
 import lt.vu.entities.Contact;
-import lt.vu.interceptors.LoggedInvocation;
 import lt.vu.persistence.AuthorDAO;
 import lt.vu.persistence.ContactDAO;
 
@@ -40,7 +39,6 @@ public class Contacts implements Serializable {
     }
 
     @Transactional
-    @LoggedInvocation
     public void createContact(){
         contactToCreate.setAuthor(this.author);
         this.contactDAO.persist(contactToCreate);

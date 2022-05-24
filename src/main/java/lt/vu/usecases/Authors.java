@@ -3,6 +3,7 @@ package lt.vu.usecases;
 import lombok.Getter;
 import lombok.Setter;
 import lt.vu.entities.Author;
+import lt.vu.interceptors.MyInterceptor;
 import lt.vu.persistence.AuthorDAO;
 
 import javax.annotation.PostConstruct;
@@ -28,6 +29,7 @@ public class Authors {
         loadAllAuthors();
     }
 
+    @MyInterceptor
     @Transactional
     public void createAuthor(){
         this.authorsDAO.persist(authorToCreate);

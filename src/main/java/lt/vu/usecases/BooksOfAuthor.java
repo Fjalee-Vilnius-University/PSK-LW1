@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lt.vu.entities.Author;
 import lt.vu.entities.Book;
-import lt.vu.interceptors.LoggedInvocation;
 import lt.vu.persistence.AuthorDAO;
 import lt.vu.persistence.BooksDAO;
 
@@ -40,7 +39,6 @@ public class BooksOfAuthor implements Serializable {
     }
 
     @Transactional
-    @LoggedInvocation
     public void createBook(String bookName) {
         Book tempBook = booksDAO.findOneByName(bookToCreate.getName());
         if (tempBook == null){
