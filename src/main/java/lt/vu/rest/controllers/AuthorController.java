@@ -57,4 +57,14 @@ public class AuthorController {
             return Response.status(Response.Status.CONFLICT).build();
         }
     }
+
+    @Path("/")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Transactional
+    public Response createNew(AuthorDto authorDto) {
+        Author author = new Author(null, authorDto.getName());
+        authorDAO.persist(author);
+        return Response.ok().build();
+    }
 }
