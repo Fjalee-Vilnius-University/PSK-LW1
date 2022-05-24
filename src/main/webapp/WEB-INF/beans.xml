@@ -13,4 +13,7 @@
     <interceptors>
         <class>lt.vu.interceptors.MYInterceptorImplementation</class>
     </interceptors>
+    <decorators>
+        <class>lt.vu.decorator.AuthorDecorator</class>
+    </decorators>
 </beans>
