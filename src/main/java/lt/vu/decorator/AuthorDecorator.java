@@ -39,4 +39,9 @@ public class AuthorDecorator implements AuthorDAOInterface {
     public Author findOne(Integer id) {
         return authorInterface.findOne(id);
     }
+
+    @Override
+    public void update(Author existingAuthor) {
+        authorInterface.update(existingAuthor);
+    }
 }

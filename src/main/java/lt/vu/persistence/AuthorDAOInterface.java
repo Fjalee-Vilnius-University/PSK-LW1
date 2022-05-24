@@ -11,4 +11,5 @@ public interface AuthorDAOInterface {
     void setEm(EntityManager em);
     void persist(Author author);
     Author findOne(Integer id);
+    void update(Author existingAuthor);
 }

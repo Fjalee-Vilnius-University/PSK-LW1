@@ -28,4 +28,10 @@ public class AuthorDAO implements AuthorDAOInterface{
     public Author findOne(Integer id) {
         return em.find(Author.class, id);
     }
+
+    @Override
+    public void update(Author existingPerson) {
+        em.merge(existingPerson);
+        em.flush();
+    }
 }
